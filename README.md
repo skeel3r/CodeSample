@@ -11,11 +11,11 @@ The classifier can be found [here](https://github.com/mrnugget/opencv-haar-class
 
 Run the program two ways
 
-'''
+```
 ./CodeSample
-'''
+```
 or
-'''
+```
 ./CodeSample -aVideoFile.mp4
-'''
+```
 multiple filetypes are acceptable
