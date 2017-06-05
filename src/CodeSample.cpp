@@ -10,7 +10,6 @@
 
 // Project Includes
 #include "Banana.h"
-#include "Calibrator.h"
 
 using namespace cv;
 using namespace std;
@@ -80,9 +79,6 @@ int main(int argc, char *argv[]){
         int keypress = waitKey(30);
         if(keypress  == 'q'){
             break; // Exit
-        }
-        if(keypress  == 'c'){
-            calibrate = true; // Calibrate
         }
     }
 
