@@ -38,36 +38,36 @@ int main(int argc, char *argv[]){
     }
 
     // Defining Variables
-    int minH = 20;
-    int maxH = 30;
-    int minS = 100;
+    int minH = 10;
+    int maxH = 50;
+    int minS = 75;
     int maxS = 255;
-    int minV = 100; 
+    int minV = 75; 
     int maxV = 255; // Vars for hsv thresholding filter   
 
     cout << "Beginning video manipulation" << endl;
     while(true){
         vector< Banana > myBananas;
-        Mat frame, frame2;
+        Mat frame;
         Mat hsv;
-        Mat threshold1, threshold2;
+        Mat threshold;
         myVideo.read(frame);
         cvtColor(frame, hsv, COLOR_BGR2HSV);
 
         // Filter for bananas
-        inRange(hsv, Scalar(minH, minS, minV), Scalar(maxH, maxS, maxV), threshold2);
+        inRange(hsv, Scalar(minH, minS, minV), Scalar(maxH, maxS, maxV), threshold);
 
         // Classify Bananas
         CascadeClassifier banana_cascade("banana_classifier.xml");
         std::vector<Rect> bananas;
         // Input Mat, vector, scale factor, neighboring rectangles, min/max sizes
-        banana_cascade.detectMultiScale(hsv, bananas, 1.1, 3, 0|CV_HAAR_SCALE_IMAGE, Size(60, 60) );
+        banana_cascade.detectMultiScale(threshold, bananas, 1.1, 3, 0|CV_HAAR_SCALE_IMAGE, Size(60, 60) );
 
         // Draw ellipse around the detected bananas
         for( int i = 0; i < bananas.size(); i++ ){
             Banana newBanana;
             Point center( bananas[i].x + bananas[i].width*0.5, bananas[i].y + bananas[i].height*0.5 );
-            ellipse( frame, center, Size( bananas[i].width*0.5, bananas[i].height*0.5), 0, 0, 360, Scalar( 255, 0, 255 ), 4, 8, 0 );
+            ellipse( frame, center, Size( bananas[i].width*0.5, bananas[i].height*0.5), 0, 0, 360, Scalar( 100, 100, 255 ), 2, 8, 0 );
             newBanana.setX(bananas[i].x);
             newBanana.setY(bananas[i].y);
             myBananas.push_back(newBanana); // Add detected banana to vector
