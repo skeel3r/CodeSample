@@ -5,8 +5,8 @@
 // OpenCV Includes
 #include <opencv2/opencv.hpp>
 #include "opencv2/videoio.hpp"
-#include "opencv2/cudafilters.hpp"
-#include "opencv2/features2d.hpp"
+//#include "opencv2/cudafilters.hpp" // Was using gpu based filters
+//#include "opencv2/features2d.hpp"
 
 // Project Includes
 #include "Banana.h"
