@@ -1,11 +1,11 @@
-//ifndefs
+#ifndef _SAMPLE_CODE_BANANA_H_
+#define _SAMPLE_CODE_BANANA_H_
 
-
-class Apple{
+class Banana{
 
     public:
-        Apple(void); // Constructor
-        ~Apple(void); // Destructor
+        Banana(void); // Constructor
+        ~Banana(void); // Destructor
         int getX(); // Return X location
         int getY(); // Return Y location
         void setX(int x); // Set X location
@@ -15,3 +15,4 @@ class Apple{
         int xPos; // X location of Apple
         int yPos; // Y location of Apple
 };
+#endif
